@@ -138,7 +138,7 @@ DATABASES = {
         'PORT':'3306'
     }
 }
-DATABASES['default'].update[dj_database_url.config(conn_max_age=500)]
+# DATABASES['default'].update[dj_database_url.config(conn_max_age=500)]
 
 WHITENOISE_USE_FINDERS = True
 # Password validation
