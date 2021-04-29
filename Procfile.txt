@@ -1,1 +1,2 @@
-web: gunicorn ecommerce.wsgi
+{% comment %} web: gunicorn ecommerce.wsgi {% endcomment %}
+heroku ps:scale web=1
