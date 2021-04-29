@@ -27,7 +27,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'django-insecure--=4l!o3zyr6e66%*us!9fvzo@l*-2c*wic2d%c%nv25q*)7)jb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = False 
+# os.environ.get('DJANGO_DEBUG', '') != 'False'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -52,6 +53,7 @@ INSTALLED_APPS = [
     'simple_email_confirmation',
     'rest_framework',
     'rest_framework.authtoken',
+    'whitenoise.runserver_nostatic'
 ]
 
 MIDDLEWARE = [
@@ -65,6 +67,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'accounts.LoginCheckMiddleWare.LoginCheckMiddleWare',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'ecommerce.urls'
@@ -135,8 +138,9 @@ DATABASES = {
         'PORT':'3306'
     }
 }
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update[dj_database_url.config(conn_max_age=500)]
 
+WHITENOISE_USE_FINDERS = True
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -210,6 +214,8 @@ STATICFILES_DIRS = [
     '/var/www/static/',
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
