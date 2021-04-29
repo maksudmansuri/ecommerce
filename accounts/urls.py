@@ -1,5 +1,5 @@
 from django.urls import path,include
-from API.import views
+from .import views
 # from rest_framework import routers
 # router = routers.SimpleRouter()
 # router.register(r'users', views.CustomUserViewSet)
