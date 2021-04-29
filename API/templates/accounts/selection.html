@@ -1,0 +1,25 @@
+{% extends './acc_base.html' %}
+{% load static %}
+
+{% block body %}
+					<h1><a href="/" class="txt2 bo1 m-l-5">
+							Home
+						</a></h1>
+					<span class="login100-form-title p-b-53">
+						Sign In With
+					</span>			
+				   
+					<div class="container-login100-form-btn m-t-17" >
+						<a href="/accounts/student_singup"> 
+						<button class="login100-form-btn">
+						 	As Student 
+						</button></a>	
+					</div>
+					
+					<div class="container-login100-form-btn m-t-17">
+						<a href="/accounts/instructor_singup"> 
+						<button class="login100-form-btn">
+							As Teacher
+						</button></a>
+					</div>
+{% endblock %}
